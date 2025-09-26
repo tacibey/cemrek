@@ -1,39 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - ShopHub</title>
+    <title>Tüm Ürünler - Cem Reklam</title>
+    <meta name="description" content="Cem Reklam'ın geniş promosyon ürünleri kataloğunu keşfedin. Kalem, çanta, teknoloji, kupa ve daha fazlası için teklif listesi oluşturun.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Sabit WhatsApp Butonu -->
+    <a href="https://wa.me/905551234567?text=Merhaba,%20promosyon%20ürünleriniz%20hakkında%20bilgi%20almak%20istiyorum." class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-3" href="index.html">ShopHub</a>
+            <a class="navbar-brand fw-bold fs-3" href="index.html">Cem Reklam</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#categories">Categories</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="products.html">Ürünler</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#categories">Kategoriler</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Hakkımızda</a></li>
                 </ul>
                 <div class="d-flex align-items-center">
-                    <form class="d-flex me-3">
-                        <input class="form-control me-2" type="search" placeholder="Search products...">
+                    <form class="d-flex me-3" id="search-form">
+                        <input class="form-control me-2" type="search" id="search-input" placeholder="Ürün ara...">
                         <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                     <a href="cart.html" class="btn btn-accent me-2 position-relative">
                         <i class="fas fa-shopping-cart"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>
+                        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
                     </a>
-                    <button class="btn btn-outline-light">Login</button>
+                    <a href="https://wa.me/905551234567?text=Merhaba,%20hızlı%20teklif%20almak%20istiyorum." target="_blank" class="btn btn-outline-light">Hızlı Teklif Al</a>
                 </div>
             </div>
         </div>
@@ -44,14 +50,14 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <h1 class="display-5 fw-bold text-primary mb-2">All Products</h1>
-                    <p class="lead text-muted">Discover our complete collection of premium products</p>
+                    <h1 class="display-5 fw-bold text-primary mb-2">Tüm Ürünler</h1>
+                    <p class="lead text-muted">Geniş ürün yelpazemizi keşfedin</p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-md-end">
-                            <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Home</a></li>
-                            <li class="breadcrumb-item active">Products</li>
+                            <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Ana Sayfa</a></li>
+                            <li class="breadcrumb-item active">Ürünler</li>
                         </ol>
                     </nav>
                 </div>
@@ -67,330 +73,69 @@
                 <div class="col-lg-3 mb-4">
                     <div class="card border-0 shadow-sm">
                         <div class="card-header bg-primary text-white">
-                            <h5 class="mb-0"><i class="fas fa-filter me-2"></i>Filters</h5>
+                            <h5 class="mb-0"><i class="fas fa-filter me-2"></i>Filtreler</h5>
                         </div>
                         <div class="card-body">
                             <!-- Category Filter -->
                             <div class="mb-4">
-                                <h6 class="fw-bold">Category</h6>
+                                <h6 class="fw-bold">Kategori</h6>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="electronics">
-                                    <label class="form-check-label" for="electronics">Electronics (45)</label>
+                                    <input class="form-check-input category-filter" type="checkbox" value="kirtasiye" id="kirtasiye">
+                                    <label class="form-check-label" for="kirtasiye">Kırtasiye & Ofis</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="fashion">
-                                    <label class="form-check-label" for="fashion">Fashion (32)</label>
+                                    <input class="form-check-input category-filter" type="checkbox" value="tekstil" id="tekstil">
+                                    <label class="form-check-label" for="tekstil">Tekstil</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="home">
-                                    <label class="form-check-label" for="home">Home & Garden (28)</label>
+                                    <input class="form-check-input category-filter" type="checkbox" value="teknoloji" id="teknoloji">
+                                    <label class="form-check-label" for="teknoloji">Teknoloji</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="sports">
-                                    <label class="form-check-label" for="sports">Sports (19)</label>
-                                </div>
-                            </div>
-
-                            <!-- Price Range -->
-                            <div class="mb-4">
-                                <h6 class="fw-bold">Price Range</h6>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="under50">
-                                    <label class="form-check-label" for="under50">Under $50</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="50to100">
-                                    <label class="form-check-label" for="50to100">$50 - $100</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="100to500">
-                                    <label class="form-check-label" for="100to500">$100 - $500</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="over500">
-                                    <label class="form-check-label" for="over500">Over $500</label>
+                                    <input class="form-check-input category-filter" type="checkbox" value="diger" id="diger">
+                                    <label class="form-check-label" for="diger">Diğer</label>
                                 </div>
                             </div>
-
-                            <!-- Rating Filter -->
-                            <div class="mb-4">
-                                <h6 class="fw-bold">Rating</h6>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="5stars">
-                                    <label class="form-check-label" for="5stars">
-                                        <span class="text-warning">★★★★★</span> 5 Stars
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="4stars">
-                                    <label class="form-check-label" for="4stars">
-                                        <span class="text-warning">★★★★☆</span> 4+ Stars
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="3stars">
-                                    <label class="form-check-label" for="3stars">
-                                        <span class="text-warning">★★★☆☆</span> 3+ Stars
-                                    </label>
-                                </div>
-                            </div>
-
-                            <button class="btn btn-primary w-100">Apply Filters</button>
-                            <button class="btn btn-outline-secondary w-100 mt-2">Clear All</button>
+                            <button class="btn btn-outline-secondary w-100 mt-2" id="clear-filters">Filtreleri Temizle</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Products Grid -->
                 <div class="col-lg-9">
-                    <!-- Sort and View Options -->
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <div>
-                            <span class="text-muted">Showing 1-12 of 124 products</span>
-                        </div>
-                        <div class="d-flex align-items-center gap-3">
-                            <select class="form-select" style="width: auto;">
-                                <option>Sort by: Featured</option>
-                                <option>Price: Low to High</option>
-                                <option>Price: High to Low</option>
-                                <option>Customer Rating</option>
-                                <option>Newest First</option>
-                            </select>
-                            <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-outline-secondary active">
-                                    <i class="fas fa-th"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary">
-                                    <i class="fas fa-list"></i>
-                                </button>
-                            </div>
-                        </div>
+                        <span id="product-count" class="text-muted"></span>
                     </div>
 
-                    <!-- Products Grid -->
-                    <div class="row g-4">
-                        <!-- Product 1 -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card product-card h-100 border-0 shadow-sm">
-                                <div class="position-relative">
-                                    <img src="img/product-1.png" class="card-img-top" alt="Bluetooth Speaker">
-                                    <span class="badge bg-accent position-absolute top-0 end-0 m-2">New</span>
-                                    <div class="position-absolute top-0 start-0 m-2">
-                                        <button class="btn btn-light btn-sm rounded-circle">
-                                            <i class="far fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">Wireless Bluetooth Speaker</h5>
-                                    <p class="card-text text-muted flex-grow-1">Portable speaker with premium sound quality</p>
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <span class="h5 text-primary mb-0">$79.99</span>
-                                        <div class="text-warning">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <small class="text-muted ms-1">(67)</small>
+                    <div class="row g-4" id="product-list">
+                        <!-- Ürünler JavaScript ile buraya eklenecek -->
+                        <!-- Örnek Ürün Kartı Yapısı (JS bunu kullanacak) -->
+                        <template id="product-card-template">
+                            <div class="col-lg-4 col-md-6 product-card-wrapper" data-category="{category}">
+                                <div class="card product-card h-100 border-0 shadow-sm">
+                                    <a href="product-detail.html?id={id}" class="text-decoration-none">
+                                        <img src="img/{image}" class="card-img-top" alt="{name}">
+                                    </a>
+                                    <div class="card-body d-flex flex-column">
+                                        <h5 class="card-title">{name}</h5>
+                                        <p class="card-text text-muted flex-grow-1">{description}</p>
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="h5 text-primary mb-0">{price_range}</span>
                                         </div>
-                                    </div>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-primary flex-grow-1">Add to Cart</button>
-                                        <a href="product-detail.html" class="btn btn-outline-primary">View</a>
+                                        <div class="d-flex gap-2 mt-auto">
+                                            <button class="btn btn-primary flex-grow-1" onclick="addToQuoteList('{id}', '{name}', '{image}')">Listeye Ekle</button>
+                                            <a href="product-detail.html?id={id}" class="btn btn-outline-primary">Detaylar</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Product 2 -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card product-card h-100 border-0 shadow-sm">
-                                <div class="position-relative">
-                                    <img src="img/product-2.png" class="card-img-top" alt="Gaming Keyboard">
-                                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">Sale</span>
-                                    <div class="position-absolute top-0 start-0 m-2">
-                                        <button class="btn btn-light btn-sm rounded-circle">
-                                            <i class="far fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">Gaming Mechanical Keyboard</h5>
-                                    <p class="card-text text-muted flex-grow-1">RGB backlit mechanical gaming keyboard</p>
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <div>
-                                            <span class="h5 text-primary mb-0">$129.99</span>
-                                            <small class="text-muted text-decoration-line-through ms-2">$159.99</small>
-                                        </div>
-                                        <div class="text-warning">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <small class="text-muted ms-1">(143)</small>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-primary flex-grow-1">Add to Cart</button>
-                                        <a href="product-detail.html" class="btn btn-outline-primary">View</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product 3 -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card product-card h-100 border-0 shadow-sm">
-                                <div class="position-relative">
-                                    <img src="img/product-2.png" class="card-img-top" alt="Wireless Mouse">
-                                    <div class="position-absolute top-0 start-0 m-2">
-                                        <button class="btn btn-light btn-sm rounded-circle">
-                                            <i class="far fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">Ergonomic Wireless Mouse</h5>
-                                    <p class="card-text text-muted flex-grow-1">Comfortable wireless mouse for productivity</p>
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <span class="h5 text-primary mb-0">$49.99</span>
-                                        <div class="text-warning">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <small class="text-muted ms-1">(89)</small>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-primary flex-grow-1">Add to Cart</button>
-                                        <a href="product-detail.html" class="btn btn-outline-primary">View</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Additional products would continue here... -->
-                        <!-- For brevity, I'll add a few more products with similar structure -->
-                        
-                        <!-- Product 4 -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card product-card h-100 border-0 shadow-sm">
-                                <div class="position-relative">
-                                    <img src="img/product-2.png" class="card-img-top" alt="4K Webcam">
-                                    <div class="position-absolute top-0 start-0 m-2">
-                                        <button class="btn btn-light btn-sm rounded-circle">
-                                            <i class="far fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">4K Streaming Webcam</h5>
-                                    <p class="card-text text-muted flex-grow-1">Ultra HD webcam for streaming and video calls</p>
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <span class="h5 text-primary mb-0">$189.99</span>
-                                        <div class="text-warning">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <small class="text-muted ms-1">(76)</small>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-primary flex-grow-1">Add to Cart</button>
-                                        <a href="product-detail.html" class="btn btn-outline-primary">View</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product 5 -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card product-card h-100 border-0 shadow-sm">
-                                <div class="position-relative">
-                                    <img src="img/product-2.png" class="card-img-top" alt="USB-C Hub">
-                                    <div class="position-absolute top-0 start-0 m-2">
-                                        <button class="btn btn-light btn-sm rounded-circle">
-                                            <i class="far fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">USB-C Multiport Hub</h5>
-                                    <p class="card-text text-muted flex-grow-1">7-in-1 hub with HDMI, USB ports, and SD card reader</p>
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <span class="h5 text-primary mb-0">$59.99</span>
-                                        <div class="text-warning">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <small class="text-muted ms-1">(112)</small>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-primary flex-grow-1">Add to Cart</button>
-                                        <a href="product-detail.html" class="btn btn-outline-primary">View</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product 6 -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="card product-card h-100 border-0 shadow-sm">
-                                <div class="position-relative">
-                                    <img src="img/product-2.png" class="card-img-top" alt="Power Bank">
-                                    <span class="badge bg-success position-absolute top-0 end-0 m-2">Eco</span>
-                                    <div class="position-absolute top-0 start-0 m-2">
-                                        <button class="btn btn-light btn-sm rounded-circle">
-                                            <i class="far fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">Portable Power Bank</h5>
-                                    <p class="card-text text-muted flex-grow-1">20,000mAh fast charging power bank</p>
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <span class="h5 text-primary mb-0">$39.99</span>
-                                        <div class="text-warning">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <small class="text-muted ms-1">(198)</small>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-primary flex-grow-1">Add to Cart</button>
-                                        <a href="product-detail.html" class="btn btn-outline-primary">View</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </template>
                     </div>
 
                     <!-- Pagination -->
                     <nav aria-label="Products pagination" class="mt-5">
                         <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                            </li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
+                            <!-- Pagination linkleri eklenebilir -->
                         </ul>
                     </nav>
                 </div>
@@ -398,63 +143,163 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer (index.html ile aynı) -->
     <footer class="bg-primary text-white py-5">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4">
-                    <h5 class="fw-bold mb-3">ShopHub</h5>
-                    <p>Your trusted online shopping destination for quality products at great prices.</p>
+                    <h5 class="fw-bold mb-3">Cem Reklam</h5>
+                    <p>Markanız için en doğru promosyon ürünlerini bulmanıza yardımcı oluyoruz. Kaliteli, uygun fiyatlı ve hızlı çözümler için doğru adrestesiniz.</p>
                     <div class="d-flex gap-3">
                         <a href="#" class="text-white"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-twitter fa-lg"></i></a>
                         <a href="#" class="text-white"><i class="fab fa-instagram fa-lg"></i></a>
                         <a href="#" class="text-white"><i class="fab fa-linkedin fa-lg"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6">
-                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <h6 class="fw-bold mb-3">Hızlı Erişim</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white-50 text-decoration-none">About Us</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Contact</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">FAQ</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Shipping</a></li>
+                        <li><a href="index.html" class="text-white-50 text-decoration-none">Ana Sayfa</a></li>
+                        <li><a href="products.html" class="text-white-50 text-decoration-none">Tüm Ürünler</a></li>
+                        <li><a href="#about" class="text-white-50 text-decoration-none">Hakkımızda</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">İletişim</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-6">
-                    <h6 class="fw-bold mb-3">Categories</h6>
+                    <h6 class="fw-bold mb-3">Kategoriler</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white-50 text-decoration-none">Electronics</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Fashion</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Home & Garden</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Sports</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Kırtasiye & Ofis</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Tekstil</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Teknoloji</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Diğer</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2 col-md-6">
-                    <h6 class="fw-bold mb-3">Support</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white-50 text-decoration-none">Help Center</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Returns</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Track Order</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Size Guide</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <h6 class="fw-bold mb-3">Newsletter</h6>
-                    <p class="small">Subscribe for updates</p>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="fw-bold mb-3">Fırsatlardan Haberdar Olun</h6>
+                    <p class="small">Yeni ürünler ve özel kampanyalar için bültenimize kaydolun.</p>
                     <div class="input-group">
-                        <input type="email" class="form-control" placeholder="Your email">
-                        <button class="btn btn-accent" type="button">Subscribe</button>
+                        <input type="email" class="form-control" placeholder="E-posta adresiniz">
+                        <button class="btn btn-accent" type="button">Abone Ol</button>
                     </div>
                 </div>
             </div>
             <hr class="my-4">
-            <div class="text-center">
-                <p class="mb-0">&copy; 2024 ShopHub. All rights reserved.</p>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 Cem Reklam. Tüm hakları saklıdır.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white-50 text-decoration-none me-3">Gizlilik Politikası</a>
+                    <a href="#" class="text-white-50 text-decoration-none">Kullanım Şartları</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Teklif Listesi ve Ürün Filtreleme Scripti -->
+    <script>
+        // --- TEKLİF LİSTESİ FONKSİYONLARI ---
+        function getQuoteList() {
+            return JSON.parse(localStorage.getItem('quoteList')) || [];
+        }
+
+        function saveQuoteList(list) {
+            localStorage.setItem('quoteList', JSON.stringify(list));
+            updateCartCount();
+        }
+
+        function addToQuoteList(id, name, image) {
+            let list = getQuoteList();
+            // Ürünün listede olup olmadığını kontrol et
+            const existingProduct = list.find(item => item.id === id);
+            if (!existingProduct) {
+                list.push({ id, name, image, quantity: 1 });
+                saveQuoteList(list);
+                alert('"' + name + '" teklif listesine eklendi!');
+            } else {
+                alert('Bu ürün zaten listenizde.');
+            }
+        }
+
+        function updateCartCount() {
+            const list = getQuoteList();
+            const cartCount = document.getElementById('cart-count');
+            if (cartCount) {
+                cartCount.textContent = list.length;
+            }
+        }
+
+        // --- SAYFA YÜKLENDİĞİNDE ÇALIŞACAK KODLAR ---
+        document.addEventListener('DOMContentLoaded', function () {
+            updateCartCount();
+
+            // --- ÜRÜN VERİLERİ (Normalde bir API'den gelir, statik site için burada tanımlıyoruz) ---
+            const allProducts = [
+                { id: 'p1', name: 'Promosyon Tükenmez Kalem', description: 'Logonuza özel baskılı, kaliteli metal kalem.', price_range: '8 TL - 18 TL', image: 'product-2.png', category: 'kirtasiye' },
+                { id: 'p2', name: 'Baskılı Bez Çanta', description: 'Doğa dostu, dayanıklı ve geniş baskı alanı.', price_range: '25 TL - 45 TL', image: 'product-2.png', category: 'tekstil' },
+                { id: 'p3', name: 'Spiralli Not Defteri', description: 'Kapak ve iç sayfalara özel baskı imkanı.', price_range: '30 TL - 60 TL', image: 'product-2.png', category: 'kirtasiye' },
+                { id: 'p4', name: 'Logolu Powerbank', description: '10.000 mAh kapasiteli, hızlı şarj özellikli.', price_range: '150 TL - 250 TL', image: 'product-2.png', category: 'teknoloji' },
+                { id: 'p5', name: 'Seramik Kupa', description: 'Sıcak içecekler için ideal, logo baskılı kupa.', price_range: '40 TL - 70 TL', image: 'product-1.png', category: 'diger' },
+                { id: 'p6', name: 'Polo Yaka T-Shirt', description: 'Nakış veya baskı logolu, kaliteli kumaş.', price_range: '180 TL - 300 TL', image: 'product-1.png', category: 'tekstil' },
+                { id: 'p7', name: 'USB Bellek', description: 'Metal veya plastik kasa, 32GB kapasiteli.', price_range: '90 TL - 150 TL', image: 'product-1.png', category: 'teknoloji' },
+                { id: 'p8', name: 'Duvar Saati', description: 'Ofisler için şık ve modern tasarımlı duvar saati.', price_range: '120 TL - 200 TL', image: 'product-1.png', category: 'diger' }
+            ];
+
+            const productListContainer = document.getElementById('product-list');
+            const template = document.getElementById('product-card-template');
+            const productCountSpan = document.getElementById('product-count');
+
+            // --- ÜRÜNLERİ EKRANA YAZDIRMA FONKSİYONU ---
+            function renderProducts(productsToRender) {
+                productListContainer.innerHTML = ''; // Listeyi temizle
+                productsToRender.forEach(product => {
+                    const clone = template.content.cloneNode(true);
+                    let cardHTML = clone.firstElementChild.outerHTML;
+                    cardHTML = cardHTML.replace(/{id}/g, product.id)
+                                       .replace(/{name}/g, product.name)
+                                       .replace(/{description}/g, product.description)
+                                       .replace(/{price_range}/g, product.price_range)
+                                       .replace(/{image}/g, product.image)
+                                       .replace(/{category}/g, product.category);
+                    productListContainer.innerHTML += cardHTML;
+                });
+                productCountSpan.textContent = `${productsToRender.length} ürün bulundu.`;
+            }
+
+            // --- FİLTRELEME VE ARAMA MANTIĞI ---
+            const searchInput = document.getElementById('search-input');
+            const categoryCheckboxes = document.querySelectorAll('.category-filter');
+
+            function applyFilters() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedCategories = Array.from(categoryCheckboxes)
+                                                .filter(cb => cb.checked)
+                                                .map(cb => cb.value);
+
+                let filteredProducts = allProducts.filter(product => {
+                    const matchesSearch = product.name.toLowerCase().includes(searchTerm) || product.description.toLowerCase().includes(searchTerm);
+                    const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(product.category);
+                    return matchesSearch && matchesCategory;
+                });
+
+                renderProducts(filteredProducts);
+            }
+
+            searchInput.addEventListener('keyup', applyFilters);
+            categoryCheckboxes.forEach(cb => cb.addEventListener('change', applyFilters));
+            
+            document.getElementById('search-form').addEventListener('submit', e => e.preventDefault());
+            document.getElementById('clear-filters').addEventListener('click', () => {
+                categoryCheckboxes.forEach(cb => cb.checked = false);
+                searchInput.value = '';
+                applyFilters();
+            });
+
+            // Başlangıçta tüm ürünleri göster
+            renderProducts(allProducts);
+        });
+    </script>
 </body>
 </html>
