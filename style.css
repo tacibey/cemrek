@@ -213,3 +213,28 @@ footer a:hover {
 
 
 /* ... existing code ... */ /* Added checkout page specific styles */ .checkout-progress { position: relative; } .checkout-progress::before { content: ''; position: absolute; top: 20px; left: 0; right: 0; height: 2px; background-color: #e9ecef; z-index: 1; } .step { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; } .step-number { width: 40px; height: 40px; border-radius: 50%; background-color: #e9ecef; color: #6c757d; display: flex; align-items: center; justify-content: center; font-weight: 600; margin-bottom: 8px; transition: all 0.3s ease; } .step.active .step-number { background-color: #6f42c1; color: white; } .step-label { font-size: 0.875rem; color: #6c757d; font-weight: 500; } .step.active .step-label { color: #6f42c1; font-weight: 600; } .checkout-section { animation: fadeIn 0.3s ease-in-out; } @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } } .order-items img { border: 1px solid #e9ecef; } .security-badge { background-color: #f8f9fa; padding: 12px; border-radius: 8px; border: 1px solid #e9ecef; } .payment-methods .form-check { padding: 12px; border: 1px solid #e9ecef; border-radius: 8px; transition: all 0.2s ease; } .payment-methods .form-check:hover { border-color: #6f42c1; background-color: #f8f9fa; } .payment-methods .form-check-input:checked + .form-check-label { color: #6f42c1; font-weight: 600; } #credit-card-form { background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-top: 15px; } .order-review { background-color: #f8f9fa; padding: 20px; border-radius: 8px; } .order-review h6 { color: #495057; margin-bottom: 8px; } /* Responsive adjustments for checkout */ @media (max-width: 768px) { .checkout-progress { margin-bottom: 2rem; } .step-label { font-size: 0.75rem; } .step-number { width: 35px; height: 35px; font-size: 0.875rem; } }
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   /* Sabit WhatsApp Butonu Stilleri */
+.whatsapp-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1);
+    background-color: #128C7E;
+    color: white;
+}
