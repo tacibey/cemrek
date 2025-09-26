@@ -1,39 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopHub - Your Premium Shopping Destination</title>
+    <title>Cem Reklam - Kurumsal Promosyon ve Reklam Ürünleri</title>
+    <meta name="description" content="Cem Reklam, firmanızın kimliğine özel promosyon ürünleri sunar. Kalem, bez çanta, teknoloji ve daha binlerce ürün için en uygun fiyatlarla teklif alın.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Sabit WhatsApp Butonu -->
+    <a href="https://wa.me/905551234567?text=Merhaba,%20promosyon%20ürünleriniz%20hakkında%20bilgi%20almak%20istiyorum." class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-3" href="index.html">ShopHub</a>
+            <a class="navbar-brand fw-bold fs-3" href="index.html">Cem Reklam</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Ürünler</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#categories">Kategoriler</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Hakkımızda</a></li>
                 </ul>
                 <div class="d-flex align-items-center">
-                    <form class="d-flex me-3">
-                        <input class="form-control me-2" type="search" placeholder="Search products...">
+                    <form class="d-flex me-3" id="search-form">
+                        <input class="form-control me-2" type="search" id="search-input" placeholder="Ürün ara...">
                         <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                     <a href="cart.html" class="btn btn-accent me-2 position-relative">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>
                     </a>
-                    <button class="btn btn-outline-light">Login</button>
+                    <a href="https://wa.me/905551234567?text=Merhaba,%20hızlı%20teklif%20almak%20istiyorum." target="_blank" class="btn btn-outline-light">Hızlı Teklif Al</a>
                 </div>
             </div>
         </div>
@@ -44,15 +50,15 @@
         <div class="container">
             <div class="row align-items-center min-vh-100">
                 <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold text-white mb-4">Discover Premium Products at Unbeatable Prices</h1>
-                    <p class="lead text-white mb-4">Shop from thousands of quality products with fast shipping and excellent customer service. Your satisfaction is our priority.</p>
+                    <h1 class="display-4 fw-bold text-white mb-4">Kurumsal Kimliğinizi Yansıtan Promosyon Ürünleri</h1>
+                    <p class="lead text-white mb-4">Binlerce kaliteli promosyon ürünü arasından markanıza en uygun olanı seçin. Hızlı teslimat ve uygun fiyatlarla toplu siparişleriniz için teklif alın.</p>
                     <div class="d-flex gap-3">
-                        <a href="products.html" class="btn btn-accent btn-lg px-4">Shop Now</a>
-                        <button class="btn btn-outline-light btn-lg px-4">Learn More</button>
+                        <a href="products.html" class="btn btn-accent btn-lg px-4">Ürünleri Keşfet</a>
+                        <a href="#about" class="btn btn-outline-light btn-lg px-4">Hakkımızda</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <img src="img/product-1.png" alt="Shopping Hero" class="img-fluid rounded-3 shadow-lg">
+                    <img src="img/product-1.png" alt="Promosyon Ürünleri" class="img-fluid rounded-3 shadow-lg">
                 </div>
             </div>
         </div>
@@ -62,100 +68,59 @@
     <section class="py-5 bg-light">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold text-primary">Featured Products</h2>
-                <p class="lead text-muted">Discover our most popular items</p>
+                <h2 class="display-5 fw-bold text-primary">Öne Çıkan Ürünler</h2>
+                <p class="lead text-muted">En çok tercih edilen popüler ürünlerimiz</p>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
+            <div class="row g-4" id="product-list">
+                <div class="col-lg-3 col-md-6 product-card-wrapper">
                     <div class="card product-card h-100 border-0 shadow-sm">
-                        <div class="position-relative">
-                            <img src="img/product-2.png" class="card-img-top" alt="Wireless Headphones">
-                            <span class="badge bg-accent position-absolute top-0 end-0 m-2">New</span>
-                        </div>
+                        <img src="img/product-2.png" class="card-img-top" alt="Promosyon Kalem">
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Premium Wireless Headphones</h5>
-                            <p class="card-text text-muted flex-grow-1">High-quality sound with noise cancellation</p>
+                            <h5 class="card-title">Promosyon Tükenmez Kalem</h5>
+                            <p class="card-text text-muted flex-grow-1">Logonuza özel baskılı, kaliteli metal kalem.</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="h5 text-primary mb-0">$199.99</span>
-                                <div class="text-warning">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <small class="text-muted ms-1">(124)</small>
-                                </div>
+                                <span class="h5 text-primary mb-0">8 TL - 18 TL</span>
                             </div>
-                            <button class="btn btn-primary mt-3">Add to Cart</button>
+                            <button class="btn btn-primary mt-3">Listeye Ekle</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 product-card-wrapper">
                     <div class="card product-card h-100 border-0 shadow-sm">
-                        <div class="position-relative">
-                            <img src="img/product-2.png" class="card-img-top" alt="Smart Watch">
-                            <span class="badge bg-danger position-absolute top-0 end-0 m-2">Sale</span>
-                        </div>
+                        <img src="img/product-2.png" class="card-img-top" alt="Bez Çanta">
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Smart Fitness Watch</h5>
-                            <p class="card-text text-muted flex-grow-1">Track your health and fitness goals</p>
+                            <h5 class="card-title">Baskılı Bez Çanta</h5>
+                            <p class="card-text text-muted flex-grow-1">Doğa dostu, dayanıklı ve geniş baskı alanı.</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="h5 text-primary mb-0">$149.99</span>
-                                    <small class="text-muted text-decoration-line-through ms-2">$199.99</small>
-                                </div>
-                                <div class="text-warning">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <small class="text-muted ms-1">(89)</small>
-                                </div>
+                                <span class="h5 text-primary mb-0">25 TL - 45 TL</span>
                             </div>
-                            <button class="btn btn-primary mt-3">Add to Cart</button>
+                            <button class="btn btn-primary mt-3">Listeye Ekle</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 product-card-wrapper">
                     <div class="card product-card h-100 border-0 shadow-sm">
-                        <img src="img/product-2.png" class="card-img-top" alt="Laptop">
+                        <img src="img/product-2.png" class="card-img-top" alt="Not Defteri">
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Ultra-thin Laptop</h5>
-                            <p class="card-text text-muted flex-grow-1">Powerful performance in a sleek design</p>
+                            <h5 class="card-title">Spiralli Not Defteri</h5>
+                            <p class="card-text text-muted flex-grow-1">Kapak ve iç sayfalara özel baskı imkanı.</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="h5 text-primary mb-0">$899.99</span>
-                                <div class="text-warning">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <small class="text-muted ms-1">(156)</small>
-                                </div>
+                                <span class="h5 text-primary mb-0">30 TL - 60 TL</span>
                             </div>
-                            <button class="btn btn-primary mt-3">Add to Cart</button>
+                            <button class="btn btn-primary mt-3">Listeye Ekle</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6 product-card-wrapper">
                     <div class="card product-card h-100 border-0 shadow-sm">
-                        <img src="img/product-2.png" class="card-img-top" alt="Smartphone">
+                        <img src="img/product-2.png" class="card-img-top" alt="Powerbank">
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Latest Smartphone</h5>
-                            <p class="card-text text-muted flex-grow-1">Advanced camera and lightning-fast performance</p>
+                            <h5 class="card-title">Logolu Powerbank</h5>
+                            <p class="card-text text-muted flex-grow-1">10.000 mAh kapasiteli, hızlı şarj özellikli.</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <span class="h5 text-primary mb-0">$699.99</span>
-                                <div class="text-warning">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <small class="text-muted ms-1">(203)</small>
-                                </div>
+                                <span class="h5 text-primary mb-0">150 TL - 250 TL</span>
                             </div>
-                            <button class="btn btn-primary mt-3">Add to Cart</button>
+                            <button class="btn btn-primary mt-3">Listeye Ekle</button>
                         </div>
                     </div>
                 </div>
@@ -167,38 +132,38 @@
     <section id="categories" class="py-5">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold text-primary">Shop by Category</h2>
-                <p class="lead text-muted">Find exactly what you're looking for</p>
+                <h2 class="display-5 fw-bold text-primary">Kategorilerimiz</h2>
+                <p class="lead text-muted">Aradığınız ürünü kolayca bulun</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <div class="category-card text-center p-4 rounded-3 bg-light h-100">
                         <div class="category-icon mb-3">
-                            <i class="fas fa-laptop fa-3x text-accent"></i>
+                            <i class="fas fa-pen-nib fa-3x text-accent"></i>
                         </div>
-                        <h4 class="fw-bold">Electronics</h4>
-                        <p class="text-muted">Latest gadgets and tech accessories</p>
-                        <a href="products.html" class="btn btn-outline-primary">Browse Electronics</a>
+                        <h4 class="fw-bold">Kırtasiye & Ofis</h4>
+                        <p class="text-muted">Kalem, defter, ajanda ve ofis malzemeleri</p>
+                        <a href="products.html" class="btn btn-outline-primary">Ürünleri Gör</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="category-card text-center p-4 rounded-3 bg-light h-100">
                         <div class="category-icon mb-3">
-                            <i class="fas fa-tshirt fa-3x text-accent"></i>
+                            <i class="fas fa-shopping-bag fa-3x text-accent"></i>
                         </div>
-                        <h4 class="fw-bold">Fashion</h4>
-                        <p class="text-muted">Trendy clothing and accessories</p>
-                        <a href="products.html" class="btn btn-outline-primary">Browse Fashion</a>
+                        <h4 class="fw-bold">Tekstil</h4>
+                        <p class="text-muted">T-shirt, şapka ve bez çanta ürünleri</p>
+                        <a href="products.html" class="btn btn-outline-primary">Ürünleri Gör</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="category-card text-center p-4 rounded-3 bg-light h-100">
                         <div class="category-icon mb-3">
-                            <i class="fas fa-home fa-3x text-accent"></i>
+                            <i class="fas fa-mobile-alt fa-3x text-accent"></i>
                         </div>
-                        <h4 class="fw-bold">Home & Garden</h4>
-                        <p class="text-muted">Everything for your living space</p>
-                        <a href="products.html" class="btn btn-outline-primary">Browse Home</a>
+                        <h4 class="fw-bold">Teknoloji</h4>
+                        <p class="text-muted">Powerbank, USB bellek ve diğer teknolojik ürünler</p>
+                        <a href="products.html" class="btn btn-outline-primary">Ürünleri Gör</a>
                     </div>
                 </div>
             </div>
@@ -206,29 +171,21 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="py-5 bg-light">
+    <section id="about" class="py-5 bg-light">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold text-primary">What Our Customers Say</h2>
-                <p class="lead text-muted">Join thousands of satisfied customers</p>
+                <h2 class="display-5 fw-bold text-primary">Referanslarımız</h2>
+                <p class="lead text-muted">Birlikte çalıştığımız mutlu markalardan bazıları</p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4">
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body text-center">
-                            <div class="text-warning mb-3">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="card-text">"Amazing quality products and super fast delivery. I've been shopping here for over a year and never been disappointed!"</p>
-                            <div class="d-flex align-items-center justify-content-center">
-                                <img style="width:100px; height:100px;" src="img/product-2.png" class="rounded-circle me-3" alt="Customer">
+                            <p class="card-text fst-italic">"Sipariş sürecindeki destekleri ve ürün kalitesi harikaydı. Fuar için hazırlattığımız bez çantalar çok beğenildi. Teşekkürler Cem Reklam!"</p>
+                            <div class="d-flex align-items-center justify-content-center mt-4">
                                 <div>
-                                    <h6 class="mb-0">Sarah Johnson</h6>
-                                    <small class="text-muted">Verified Customer</small>
+                                    <h6 class="mb-0">Ayşe Yılmaz</h6>
+                                    <small class="text-muted">Pazarlama Müdürü, Tekno A.Ş.</small>
                                 </div>
                             </div>
                         </div>
@@ -237,19 +194,11 @@
                 <div class="col-lg-4">
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body text-center">
-                            <div class="text-warning mb-3">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="card-text">"Excellent customer service and great prices. The return policy is hassle-free and the support team is very helpful."</p>
-                            <div class="d-flex align-items-center justify-content-center">
-                                <img style="width:100px; height:100px;" src="img/product-2.png" class="rounded-circle me-3" alt="Customer">
+                            <p class="card-text fst-italic">"Toplu kalem siparişimiz tam zamanında ve beklediğimiz kalitede geldi. Baskı kalitesi gerçekten çok başarılı. Tekrar çalışacağız."</p>
+                            <div class="d-flex align-items-center justify-content-center mt-4">
                                 <div>
-                                    <h6 class="mb-0">Mike Chen</h6>
-                                    <small class="text-muted">Verified Customer</small>
+                                    <h6 class="mb-0">Mehmet Kaya</h6>
+                                    <small class="text-muted">Satın Alma Sorumlusu, İnşaat Co.</small>
                                 </div>
                             </div>
                         </div>
@@ -258,19 +207,11 @@
                 <div class="col-lg-4">
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body text-center">
-                            <div class="text-warning mb-3">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="card-text">"Wide selection of products and competitive prices. The website is easy to navigate and checkout is smooth."</p>
-                            <div class="d-flex align-items-center justify-content-center">
-                                <img style="width:100px; height:100px;" src="img/product-2.png" class="rounded-circle me-3" alt="Customer">
+                            <p class="card-text fst-italic">"Yeni yıl hediye setlerimiz için harika powerbank'ler tedarik ettiler. Hem şık hem de kullanışlı bir hediye oldu. Profesyonel bir ekip."</p>
+                            <div class="d-flex align-items-center justify-content-center mt-4">
                                 <div>
-                                    <h6 class="mb-0">Emily Davis</h6>
-                                    <small class="text-muted">Verified Customer</small>
+                                    <h6 class="mb-0">Elif Öztürk</h6>
+                                    <small class="text-muted">Kurumsal İletişim, Finans Bank</small>
                                 </div>
                             </div>
                         </div>
@@ -285,64 +226,89 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4">
-                    <h5 class="fw-bold mb-3">ShopHub</h5>
-                    <p>Your trusted online shopping destination for quality products at great prices. We're committed to providing excellent customer service and fast delivery.</p>
+                    <h5 class="fw-bold mb-3">Cem Reklam</h5>
+                    <p>Markanız için en doğru promosyon ürünlerini bulmanıza yardımcı oluyoruz. Kaliteli, uygun fiyatlı ve hızlı çözümler için doğru adrestesiniz.</p>
                     <div class="d-flex gap-3">
                         <a href="#" class="text-white"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-twitter fa-lg"></i></a>
                         <a href="#" class="text-white"><i class="fab fa-instagram fa-lg"></i></a>
                         <a href="#" class="text-white"><i class="fab fa-linkedin fa-lg"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6">
-                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <h6 class="fw-bold mb-3">Hızlı Erişim</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white-50 text-decoration-none">About Us</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Contact</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">FAQ</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Shipping</a></li>
+                        <li><a href="index.html" class="text-white-50 text-decoration-none">Ana Sayfa</a></li>
+                        <li><a href="products.html" class="text-white-50 text-decoration-none">Tüm Ürünler</a></li>
+                        <li><a href="#about" class="text-white-50 text-decoration-none">Hakkımızda</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">İletişim</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-6">
-                    <h6 class="fw-bold mb-3">Categories</h6>
+                    <h6 class="fw-bold mb-3">Kategoriler</h6>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white-50 text-decoration-none">Electronics</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Fashion</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Home & Garden</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Sports</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Kırtasiye & Ofis</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Tekstil</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Teknoloji</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Diğer</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2 col-md-6">
-                    <h6 class="fw-bold mb-3">Support</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white-50 text-decoration-none">Help Center</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Returns</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Track Order</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Size Guide</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <h6 class="fw-bold mb-3">Newsletter</h6>
-                    <p class="small">Subscribe for updates and exclusive offers</p>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="fw-bold mb-3">Fırsatlardan Haberdar Olun</h6>
+                    <p class="small">Yeni ürünler ve özel kampanyalar için bültenimize kaydolun.</p>
                     <div class="input-group">
-                        <input type="email" class="form-control" placeholder="Your email">
-                        <button class="btn btn-accent" type="button">Subscribe</button>
+                        <input type="email" class="form-control" placeholder="E-posta adresiniz">
+                        <button class="btn btn-accent" type="button">Abone Ol</button>
                     </div>
                 </div>
             </div>
             <hr class="my-4">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; 2024 ShopHub. All rights reserved.</p>
+                    <p class="mb-0">&copy; 2024 Cem Reklam. Tüm hakları saklıdır.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <a href="#" class="text-white-50 text-decoration-none me-3">Privacy Policy</a>
-                    <a href="#" class="text-white-50 text-decoration-none">Terms of Service</a>
+                    <a href="#" class="text-white-50 text-decoration-none me-3">Gizlilik Politikası</a>
+                    <a href="#" class="text-white-50 text-decoration-none">Kullanım Şartları</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Arama Fonksiyonu Scripti -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchForm = document.getElementById('search-form');
+            const searchInput = document.getElementById('search-input');
+            const productList = document.getElementById('product-list');
+            const productCards = productList.getElementsByClassName('product-card-wrapper');
+
+            // Formun gönderilmesini engelle (sayfa yenilenmesin)
+            searchForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+            });
+
+            // Arama inputuna her karakter girildiğinde filtreleme yap
+            searchInput.addEventListener('keyup', function () {
+                const filter = searchInput.value.toLowerCase();
+
+                for (let i = 0; i < productCards.length; i++) {
+                    const card = productCards[i];
+                    const title = card.querySelector('.card-title');
+                    const text = card.querySelector('.card-text');
+                    
+                    if (title && text) {
+                        const cardText = (title.innerText + text.innerText).toLowerCase();
+                        if (cardText.indexOf(filter) > -1) {
+                            card.style.display = "";
+                        } else {
+                            card.style.display = "none";
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
