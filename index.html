@@ -37,7 +37,7 @@
                     </form>
                     <a href="cart.html" class="btn btn-accent me-2 position-relative">
                         <i class="fas fa-shopping-cart"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>
+                        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
                     </a>
                     <a href="https://wa.me/905533533565?text=Merhaba,%20hızlı%20teklif%20almak%20istiyorum." target="_blank" class="btn btn-outline-light">Hızlı Teklif Al</a>
                 </div>
@@ -74,53 +74,53 @@
             <div class="row g-4" id="product-list">
                 <div class="col-lg-3 col-md-6 product-card-wrapper">
                     <div class="card product-card h-100 border-0 shadow-sm">
-                        <img src="img/product-2.png" class="card-img-top" alt="Promosyon Kalem">
+                        <a href="product-detail.html?id=p1"><img src="img/product-2.png" class="card-img-top" alt="Promosyon Kalem"></a>
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Promosyon Tükenmez Kalem</h5>
                             <p class="card-text text-muted flex-grow-1">Logonuza özel baskılı, kaliteli metal kalem.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 text-primary mb-0">8 TL - 18 TL</span>
                             </div>
-                            <button class="btn btn-primary mt-3">Listeye Ekle</button>
+                            <button class="btn btn-primary mt-3" onclick="addToQuoteList('p1', 'Promosyon Tükenmez Kalem', 'product-2.png')">Listeye Ekle</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 product-card-wrapper">
                     <div class="card product-card h-100 border-0 shadow-sm">
-                        <img src="img/product-2.png" class="card-img-top" alt="Bez Çanta">
+                        <a href="product-detail.html?id=p2"><img src="img/product-2.png" class="card-img-top" alt="Bez Çanta"></a>
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Baskılı Bez Çanta</h5>
                             <p class="card-text text-muted flex-grow-1">Doğa dostu, dayanıklı ve geniş baskı alanı.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 text-primary mb-0">25 TL - 45 TL</span>
                             </div>
-                            <button class="btn btn-primary mt-3">Listeye Ekle</button>
+                            <button class="btn btn-primary mt-3" onclick="addToQuoteList('p2', 'Baskılı Bez Çanta', 'product-2.png')">Listeye Ekle</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 product-card-wrapper">
                     <div class="card product-card h-100 border-0 shadow-sm">
-                        <img src="img/product-2.png" class="card-img-top" alt="Not Defteri">
+                        <a href="product-detail.html?id=p3"><img src="img/product-2.png" class="card-img-top" alt="Not Defteri"></a>
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Spiralli Not Defteri</h5>
                             <p class="card-text text-muted flex-grow-1">Kapak ve iç sayfalara özel baskı imkanı.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 text-primary mb-0">30 TL - 60 TL</span>
                             </div>
-                            <button class="btn btn-primary mt-3">Listeye Ekle</button>
+                            <button class="btn btn-primary mt-3" onclick="addToQuoteList('p3', 'Spiralli Not Defteri', 'product-2.png')">Listeye Ekle</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 product-card-wrapper">
                     <div class="card product-card h-100 border-0 shadow-sm">
-                        <img src="img/product-2.png" class="card-img-top" alt="Powerbank">
+                        <a href="product-detail.html?id=p4"><img src="img/product-2.png" class="card-img-top" alt="Powerbank"></a>
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Logolu Powerbank</h5>
                             <p class="card-text text-muted flex-grow-1">10.000 mAh kapasiteli, hızlı şarj özellikli.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="h5 text-primary mb-0">150 TL - 250 TL</span>
                             </div>
-                            <button class="btn btn-primary mt-3">Listeye Ekle</button>
+                            <button class="btn btn-primary mt-3" onclick="addToQuoteList('p4', 'Logolu Powerbank', 'product-2.png')">Listeye Ekle</button>
                         </div>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
         </div>
     </section>
 
-    <!-- Categories -->
+    <!-- Categories, Testimonials, Footer (önceki kodla aynı, değişiklik yok) -->
     <section id="categories" class="py-5">
         <div class="container">
             <div class="text-center mb-5">
@@ -169,8 +169,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Testimonials -->
     <section id="about" class="py-5 bg-light">
         <div class="container">
             <div class="text-center mb-5">
@@ -220,8 +218,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
     <footer class="bg-primary text-white py-5">
         <div class="container">
             <div class="row g-4">
@@ -276,36 +272,41 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Arama Fonksiyonu Scripti -->
+    <!-- Teklif Listesi ve Arama Scripti -->
     <script>
+        // --- TEKLİF LİSTESİ FONKSİYONLARI ---
+        function getQuoteList() { return JSON.parse(localStorage.getItem('quoteList')) || []; }
+        function saveQuoteList(list) { localStorage.setItem('quoteList', JSON.stringify(list)); updateCartCount(); }
+        function addToQuoteList(id, name, image) {
+            let list = getQuoteList();
+            const existingProduct = list.find(item => item.id === id);
+            if (!existingProduct) {
+                list.push({ id, name, image, quantity: 1 });
+                saveQuoteList(list);
+                alert('"' + name + '" teklif listesine eklendi!');
+            } else {
+                alert('Bu ürün zaten listenizde.');
+            }
+        }
+        function updateCartCount() {
+            const list = getQuoteList();
+            const cartCount = document.getElementById('cart-count');
+            if (cartCount) { cartCount.textContent = list.length; }
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
+            updateCartCount();
+
+            // --- ARAMA FONKSİYONU ---
             const searchForm = document.getElementById('search-form');
             const searchInput = document.getElementById('search-input');
-            const productList = document.getElementById('product-list');
-            const productCards = productList.getElementsByClassName('product-card-wrapper');
-
-            // Formun gönderilmesini engelle (sayfa yenilenmesin)
+            
+            // Arama yapıldığında products.html sayfasına yönlendir
             searchForm.addEventListener('submit', function (e) {
                 e.preventDefault();
-            });
-
-            // Arama inputuna her karakter girildiğinde filtreleme yap
-            searchInput.addEventListener('keyup', function () {
-                const filter = searchInput.value.toLowerCase();
-
-                for (let i = 0; i < productCards.length; i++) {
-                    const card = productCards[i];
-                    const title = card.querySelector('.card-title');
-                    const text = card.querySelector('.card-text');
-                    
-                    if (title && text) {
-                        const cardText = (title.innerText + text.innerText).toLowerCase();
-                        if (cardText.indexOf(filter) > -1) {
-                            card.style.display = "";
-                        } else {
-                            card.style.display = "none";
-                        }
-                    }
+                const searchTerm = searchInput.value;
+                if (searchTerm) {
+                    window.location.href = `products.html?search=${encodeURIComponent(searchTerm)}`;
                 }
             });
         });
