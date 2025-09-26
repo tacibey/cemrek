@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart - ShopHub</title>
+    <title>Teklif Listesi - Cem Reklam</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -13,27 +13,21 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold fs-3" href="index.html">ShopHub</a>
+            <a class="navbar-brand fw-bold fs-3" href="index.html">Cem Reklam</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#categories">Categories</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Ürünler</a></li>
                 </ul>
                 <div class="d-flex align-items-center">
-                    <form class="d-flex me-3">
-                        <input class="form-control me-2" type="search" placeholder="Search products...">
-                        <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
-                    </form>
                     <a href="cart.html" class="btn btn-accent me-2 position-relative">
                         <i class="fas fa-shopping-cart"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>
+                        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
                     </a>
-                    <button class="btn btn-outline-light">Login</button>
+                    <a href="https://wa.me/905551234567?text=Merhaba,%20hızlı%20teklif%20almak%20istiyorum." target="_blank" class="btn btn-outline-light">Hızlı Teklif Al</a>
                 </div>
             </div>
         </div>
@@ -42,20 +36,8 @@
     <!-- Page Header -->
     <section class="bg-light py-4" style="margin-top: 76px;">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h1 class="display-6 fw-bold text-primary mb-2">Shopping Cart</h1>
-                    <p class="text-muted">Review your items before checkout</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-md-end">
-                            <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Home</a></li>
-                            <li class="breadcrumb-item active">Cart</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
+            <h1 class="display-6 fw-bold text-primary mb-2">Teklif Listesi</h1>
+            <p class="text-muted">Teklif almak istediğiniz ürünleri kontrol edin ve bilgilerinizi girin.</p>
         </div>
     </section>
 
@@ -65,106 +47,18 @@
             <div class="row g-5">
                 <!-- Cart Items -->
                 <div class="col-lg-8">
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-header bg-primary text-white">
-                            <h5 class="mb-0"><i class="fas fa-shopping-cart me-2"></i>Cart Items (3)</h5>
-                        </div>
-                        <div class="card-body p-0">
-                            <!-- Cart Item 1 -->
-                            <div class="cart-item p-4 border-bottom">
-                                <div class="row align-items-center">
-                                    <div class="col-md-2">
-                                        <img src="img/product-2.png" class="img-fluid rounded" alt="Wireless Headphones">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <h6 class="fw-bold mb-1">Premium Wireless Headphones</h6>
-                                        <p class="text-muted small mb-1">Color: Black</p>
-                                        <p class="text-muted small mb-0">SKU: WH-001</p>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="input-group input-group-sm">
-                                            <button class="btn btn-outline-secondary" type="button" onclick="updateQuantity('item1', -1)">-</button>
-                                            <input type="number" class="form-control text-center" value="1" min="1" id="item1-qty" readonly>
-                                            <button class="btn btn-outline-secondary" type="button" onclick="updateQuantity('item1', 1)">+</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 text-center">
-                                        <span class="fw-bold text-primary" id="item1-price">$199.99</span>
-                                    </div>
-                                    <div class="col-md-2 text-center">
-                                        <button class="btn btn-outline-danger btn-sm" onclick="removeItem('item1')">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Cart Item 2 -->
-                            <div class="cart-item p-4 border-bottom">
-                                <div class="row align-items-center">
-                                    <div class="col-md-2">
-                                        <img src="img/product-2.png" class="img-fluid rounded" alt="Smart Watch">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <h6 class="fw-bold mb-1">Smart Fitness Watch</h6>
-                                        <p class="text-muted small mb-1">Color: Blue</p>
-                                        <p class="text-muted small mb-0">SKU: SW-002</p>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="input-group input-group-sm">
-                                            <button class="btn btn-outline-secondary" type="button" onclick="updateQuantity('item2', -1)">-</button>
-                                            <input type="number" class="form-control text-center" value="2" min="1" id="item2-qty" readonly>
-                                            <button class="btn btn-outline-secondary" type="button" onclick="updateQuantity('item2', 1)">+</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 text-center">
-                                        <span class="fw-bold text-primary" id="item2-price">$299.98</span>
-                                        <br><small class="text-muted">$149.99 each</small>
-                                    </div>
-                                    <div class="col-md-2 text-center">
-                                        <button class="btn btn-outline-danger btn-sm" onclick="removeItem('item2')">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Cart Item 3 -->
-                            <div class="cart-item p-4">
-                                <div class="row align-items-center">
-                                    <div class="col-md-2">
-                                        <img src="img/product-2.png" class="img-fluid rounded" alt="Bluetooth Speaker">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <h6 class="fw-bold mb-1">Wireless Bluetooth Speaker</h6>
-                                        <p class="text-muted small mb-1">Color: Black</p>
-                                        <p class="text-muted small mb-0">SKU: BS-003</p>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="input-group input-group-sm">
-                                            <button class="btn btn-outline-secondary" type="button" onclick="updateQuantity('item3', -1)">-</button>
-                                            <input type="number" class="form-control text-center" value="1" min="1" id="item3-qty" readonly>
-                                            <button class="btn btn-outline-secondary" type="button" onclick="updateQuantity('item3', 1)">+</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 text-center">
-                                        <span class="fw-bold text-primary" id="item3-price">$79.99</span>
-                                    </div>
-                                    <div class="col-md-2 text-center">
-                                        <button class="btn btn-outline-danger btn-sm" onclick="removeItem('item3')">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div id="quote-list-container">
+                        <!-- Ürünler JavaScript ile buraya eklenecek -->
                     </div>
-
-                    <!-- Continue Shopping -->
-                    <div class="mt-4">
-                        <a href="products.html" class="btn btn-outline-primary">
-                            <i class="fas fa-arrow-left me-2"></i>Continue Shopping
-                        </a>
+                    <div id="empty-list-message" class="card border-0 shadow-sm text-center p-5" style="display: none;">
+                        <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+                        <h4 class="text-primary">Teklif Listeniz Boş</h4>
+                        <p class="text-muted">Ürünler sayfasından teklif almak istediğiniz ürünleri listeye ekleyebilirsiniz.</p>
+                        <div class="mt-3">
+                            <a href="products.html" class="btn btn-primary">
+                                <i class="fas fa-arrow-left me-2"></i>Ürünlere Göz At
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -172,240 +66,122 @@
                 <div class="col-lg-4">
                     <div class="card border-0 shadow-sm sticky-top">
                         <div class="card-header bg-light">
-                            <h5 class="mb-0">Order Summary</h5>
+                            <h5 class="mb-0">Teklif Bilgileri</h5>
                         </div>
                         <div class="card-body">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Subtotal (4 items):</span>
-                                <span id="subtotal">$579.96</span>
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Adınız Soyadınız *</label>
+                                <input type="text" class="form-control" id="fullName" placeholder="Adınız Soyadınız" required>
                             </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Shipping:</span>
-                                <span class="text-success">Free</span>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Tax:</span>
-                                <span id="tax">$46.40</span>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Telefon Numaranız *</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="05XX XXX XX XX" required>
                             </div>
                             <hr>
-                            <div class="d-flex justify-content-between mb-3">
-                                <span class="fw-bold fs-5">Total:</span>
-                                <span class="fw-bold fs-5 text-primary" id="total">$626.36</span>
-                            </div>
-
-                            <!-- Promo Code -->
-                            <div class="mb-3">
-                                <label for="promoCode" class="form-label small">Promo Code</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" id="promoCode" placeholder="Enter code">
-                                    <button class="btn btn-outline-secondary" type="button">Apply</button>
-                                </div>
-                            </div>
-
-                            <!-- Checkout Button -->
-                            <button class="btn btn-primary btn-lg w-100 mb-3">
-                                <i class="fas fa-lock me-2"></i>Proceed to Checkout
+                            <button id="proceed-to-checkout" class="btn btn-primary btn-lg w-100">
+                                Teklifi Tamamla<i class="fas fa-arrow-right ms-2"></i>
                             </button>
-
-                            <!-- Payment Methods -->
-                            <div class="text-center">
-                                <small class="text-muted d-block mb-2">We accept:</small>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <i class="fab fa-cc-visa fa-2x text-primary"></i>
-                                    <i class="fab fa-cc-mastercard fa-2x text-warning"></i>
-                                    <i class="fab fa-cc-amex fa-2x text-info"></i>
-                                    <i class="fab fa-cc-paypal fa-2x text-primary"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Security Badge -->
-                    <div class="card border-0 shadow-sm mt-4">
-                        <div class="card-body text-center">
-                            <i class="fas fa-shield-alt fa-2x text-success mb-2"></i>
-                            <h6 class="fw-bold">Secure Checkout</h6>
-                            <small class="text-muted">Your payment information is encrypted and secure</small>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Recommended Products -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h3 class="fw-bold text-primary mb-4">You Might Also Like</h3>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
-                    <div class="card product-card h-100 border-0 shadow-sm">
-                        <img src="img/product-2.png" class="card-img-top" alt="Gaming Keyboard">
-                        <div class="card-body">
-                            <h6 class="card-title">Gaming Mechanical Keyboard</h6>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="text-primary fw-bold">$129.99</span>
-                                <button class="btn btn-outline-primary btn-sm">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card product-card h-100 border-0 shadow-sm">
-                        <img src="img/product-1.png" class="card-img-top" alt="Wireless Mouse">
-                        <div class="card-body">
-                            <h6 class="card-title">Ergonomic Wireless Mouse</h6>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="text-primary fw-bold">$49.99</span>
-                                <button class="btn btn-outline-primary btn-sm">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card product-card h-100 border-0 shadow-sm">
-                        <img src="img/product-1.png" class="card-img-top" alt="USB-C Hub">
-                        <div class="card-body">
-                            <h6 class="card-title">USB-C Multiport Hub</h6>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="text-primary fw-bold">$59.99</span>
-                                <button class="btn btn-outline-primary btn-sm">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="card product-card h-100 border-0 shadow-sm">
-                        <img src="img/product-1.png" class="card-img-top" alt="Power Bank">
-                        <div class="card-body">
-                            <h6 class="card-title">Portable Power Bank</h6>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="text-primary fw-bold">$39.99</span>
-                                <button class="btn btn-outline-primary btn-sm">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-primary text-white py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <h5 class="fw-bold mb-3">ShopHub</h5>
-                    <p>Your trusted online shopping destination for quality products at great prices.</p>
-                    <div class="d-flex gap-3">
-                        <a href="#" class="text-white"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-twitter fa-lg"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-linkedin fa-lg"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <h6 class="fw-bold mb-3">Quick Links</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white-50 text-decoration-none">About Us</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Contact</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">FAQ</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Shipping</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <h6 class="fw-bold mb-3">Categories</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white-50 text-decoration-none">Electronics</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Fashion</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Home & Garden</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Sports</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <h6 class="fw-bold mb-3">Support</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white-50 text-decoration-none">Help Center</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Returns</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Track Order</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Size Guide</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <h6 class="fw-bold mb-3">Newsletter</h6>
-                    <p class="small">Subscribe for updates</p>
-                    <div class="input-group">
-                        <input type="email" class="form-control" placeholder="Your email">
-                        <button class="btn btn-accent" type="button">Subscribe</button>
-                    </div>
-                </div>
-            </div>
-            <hr class="my-4">
-            <div class="text-center">
-                <p class="mb-0">&copy; 2024 ShopHub. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Cart functionality
-        const itemPrices = {
-            'item1': 199.99,
-            'item2': 149.99,
-            'item3': 79.99
-        };
-
-        function updateQuantity(itemId, change) {
-            const qtyInput = document.getElementById(itemId + '-qty');
-            const currentQty = parseInt(qtyInput.value);
-            const newQty = Math.max(1, currentQty + change);
-            
-            qtyInput.value = newQty;
-            
-            // Update item price
-            const itemPrice = itemPrices[itemId] * newQty;
-            document.getElementById(itemId + '-price').textContent = '$' + itemPrice.toFixed(2);
-            
-            updateTotals();
+        // --- TEKLİF LİSTESİ YARDIMCI FONKSİYONLARI ---
+        function getQuoteList() { return JSON.parse(localStorage.getItem('quoteList')) || []; }
+        function saveQuoteList(list) { localStorage.setItem('quoteList', JSON.stringify(list)); updateCartCount(); }
+        function updateCartCount() {
+            const list = getQuoteList();
+            const cartCount = document.getElementById('cart-count');
+            if (cartCount) { cartCount.textContent = list.length; }
         }
 
-        function removeItem(itemId) {
-            if (confirm('Are you sure you want to remove this item from your cart?')) {
-                document.querySelector(`#${itemId}-qty`).closest('.cart-item').remove();
-                updateTotals();
-                updateCartCount();
+        // --- BU SAYFAYA ÖZEL FONKSİYONLAR ---
+        function removeFromList(id) {
+            if (confirm('Bu ürünü listeden kaldırmak istediğinize emin misiniz?')) {
+                let list = getQuoteList();
+                list = list.filter(item => item.id !== id);
+                saveQuoteList(list);
+                renderQuoteList(); // Sayfayı yeniden çiz
             }
         }
 
-        function updateTotals() {
-            let subtotal = 0;
-            
-            // Calculate subtotal
-            Object.keys(itemPrices).forEach(itemId => {
-                const qtyElement = document.getElementById(itemId + '-qty');
-                if (qtyElement) {
-                    const qty = parseInt(qtyElement.value);
-                    subtotal += itemPrices[itemId] * qty;
+        function updateQuantity(id, newQuantity) {
+            let list = getQuoteList();
+            const item = list.find(p => p.id === id);
+            if (item) {
+                item.quantity = Math.max(1, parseInt(newQuantity)); // Minimum 1 adet
+                saveQuoteList(list);
+            }
+        }
+
+        function renderQuoteList() {
+            const list = getQuoteList();
+            const container = document.getElementById('quote-list-container');
+            const emptyMessage = document.getElementById('empty-list-message');
+            const checkoutButton = document.getElementById('proceed-to-checkout');
+
+            container.innerHTML = ''; // Konteyneri temizle
+
+            if (list.length === 0) {
+                emptyMessage.style.display = 'block';
+                checkoutButton.disabled = true;
+            } else {
+                emptyMessage.style.display = 'none';
+                checkoutButton.disabled = false;
+                
+                list.forEach(item => {
+                    const itemHTML = `
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2">
+                                        <img src="img/${item.image}" class="img-fluid rounded" alt="${item.name}">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <h6 class="fw-bold mb-1">${item.name}</h6>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small">Adet:</label>
+                                        <input type="number" class="form-control" value="${item.quantity}" min="1" onchange="updateQuantity('${item.id}', this.value)">
+                                    </div>
+                                    <div class="col-md-2 text-center">
+                                        <button class="btn btn-outline-danger btn-sm" onclick="removeFromList('${item.id}')">
+                                            <i class="fas fa-trash"></i> Kaldır
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    container.innerHTML += itemHTML;
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            updateCartCount();
+            renderQuoteList();
+
+            document.getElementById('proceed-to-checkout').addEventListener('click', function() {
+                const fullName = document.getElementById('fullName').value;
+                const phone = document.getElementById('phone').value;
+
+                if (!fullName || !phone) {
+                    alert('Lütfen adınızı, soyadınızı ve telefon numaranızı girin.');
+                    return;
                 }
+
+                // Bilgileri bir sonraki sayfa için kaydet
+                const userInfo = { fullName, phone };
+                localStorage.setItem('userInfo', JSON.stringify(userInfo));
+
+                window.location.href = 'checkout.html';
             });
-            
-            const tax = subtotal * 0.08; // 8% tax
-            const total = subtotal + tax;
-            
-            // Update display
-            document.getElementById('subtotal').textContent = '$' + subtotal.toFixed(2);
-            document.getElementById('tax').textContent = '$' + tax.toFixed(2);
-            document.getElementById('total').textContent = '$' + total.toFixed(2);
-        }
-
-        function updateCartCount() {
-            const cartItems = document.querySelectorAll('.cart-item').length;
-            document.querySelector('.badge').textContent = cartItems;
-        }
-
-        // Initialize totals on page load
-        updateTotals();
+        });
     </script>
 </body>
 </html>
